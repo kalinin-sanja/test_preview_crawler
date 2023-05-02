@@ -37,7 +37,7 @@ class PreviewCrawler:
                 url = tag['src']
                 try:
                     img_url = self._get_img_url(url)
-                    response = requests.get(img_url, stream=True)
+                    response = requests.get(img_url, stream=True, timeout=30)
                     last_read = img_url
                     img = Image.open(response.raw)
                     width, height = img.size
@@ -106,7 +106,7 @@ class PreviewCrawler:
         logger.info(f'Crawling of {self.address.geturl()}...')
         headers = {"User-Agent": "Mozilla/5.0 (CrKey armv7l 1.5.16041) AppleWebKit/537.36 (KHTML, like Gecko) "
                                  "Chrome/31.0.1650.0 Safari/537.36"}
-        data = requests.get(self.address.geturl(), headers=headers)
+        data = requests.get(self.address.geturl(), headers=headers, timeout=10)
         parser = BeautifulSoup(data.text, 'html.parser')
 
         title = parser.title.get_text()
