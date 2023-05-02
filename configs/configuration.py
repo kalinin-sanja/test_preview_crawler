@@ -10,10 +10,10 @@ class Configuration:
 
     _dir_path = os.path.dirname(os.path.realpath(__file__))
     _path = os.path.join(_dir_path, '../params.conf')
-    _conf_dict = dict()
+    _conf_dict = {}
 
     def _read_config(self):
-        with open(self._path, 'r') as file:
+        with open(self._path, 'r', encoding='utf-8') as file:
             for line in file:
                 line_clean = line.strip()
                 idx = line_clean.find('=')
