@@ -1,5 +1,5 @@
 [MESSAGES CONTROL]
-disable=missing-docstring,logging-fstring-interpolation,too-few-public-methods,no-member,too-many-arguments,too-many-locals
+disable=missing-docstring,logging-fstring-interpolation,too-few-public-methods,no-member,too-many-arguments,too-many-locals,no-name-in-module
 
 [MASTER]
 init-hook="from pylint.config import find_pylintrc; import os, sys; sys.path.append(os.path.dirname(find_pylintrc()))"
